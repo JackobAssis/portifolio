@@ -90,9 +90,10 @@ Todas as cores e valores usam variáveis CSS em `:root` ([style.css](public/css/
 
 ### Informações Pessoais (Verificar Antes do Deploy)
 Verificar em [CHECKLIST.md](CHECKLIST.md):
-- Formato do link WhatsApp: `https://wa.me/55DDNNNNNNNNN` ([index.html linha ~375](public/index.html#L375))
-- Email: whybsonjackson@gmail.com
-- LinkedIn: https://www.linkedin.com/in/whybson-assis
+- GitHub: https://github.com/JackobAssis
+- Email: jackoblab@gmail.com
+- LinkedIn: https://www.linkedin.com/in/whybson-assis-55996775/
+- Instagram: https://www.instagram.com/dev.jackob/
 - Foto de perfil (opcional): `public/assets/profile.jpg`
 
 ### SEO & Meta Tags
