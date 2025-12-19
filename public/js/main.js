@@ -1,12 +1,194 @@
 /**
- * PORTFÓLIO - WHYBSON JACKSON DE ASSIS
+ * PORTFÓLIO - WHYBSON ASSIS
  * JavaScript Vanilla - Sem dependências externas
  * 
  * Funcionalidades:
  * - Animação fade-in ao scroll (IntersectionObserver)
  * - Smooth scroll para navegação
+ * - Modais de estudo de caso (PSR - Problema, Solução, Resultado)
  * - Efeitos de hover e interatividade
  */
+
+// ========================================
+// DADOS DOS ESTUDOS DE CASO (PSR)
+// ========================================
+
+const caseStudies = {
+    'virada-sorte': {
+        title: '🎮 Virada da Sorte',
+        problema: 'Necessidade de criar uma aplicação simples e divertida que pudesse demonstrar lógica de programação, aleatoriedade e feedback visual ao usuário.',
+        solucao: 'Desenvolvi um jogo web interativo que utiliza JavaScript puro para gerar resultados aleatórios, com interface responsiva e feedback visual imediato. O sistema implementa lógica de probabilidade e animações CSS para melhorar a experiência do usuário.',
+        meuPapel: 'Atuei como desenvolvedor único, responsável por toda a arquitetura, lógica de jogo, interface e experiência do usuário.',
+        tecnologias: [
+            { nome: 'HTML & CSS', uso: 'Estrutura e design responsivo da interface' },
+            { nome: 'JavaScript Vanilla', uso: 'Lógica de aleatoriedade e interatividade' }
+        ],
+        status: '🟢 Sistema funcional, em produção e disponível online',
+        impacto: 'Demonstra capacidade de criar experiências interativas e validar conceitos de UX.',
+        demo: 'https://viradadasorte.vercel.app/',
+        github: 'https://github.com/JackobAssis'
+    },
+    'joburguers': {
+        title: '🍔 Sistema de Pontuação & Cardápio - JoBurguers',
+        problema: 'Pequenos comércios precisam de sistemas acessíveis para controlar programas de fidelidade e exibir cardápios digitais, mas soluções comerciais são caras e complexas.',
+        solucao: 'Criei um sistema completo que integra cardápio digital com controle de pontuação de clientes. O sistema usa Firebase para autenticação e persistência de dados em tempo real, permitindo que o estabelecimento gerencie clientes, adicione pontos e visualize histórico de forma simples.',
+        meuPapel: 'Desenvolvedor responsável por toda a aplicação: arquitetura, backend (Firebase), interface, lógica de negócio e deploy.',
+        tecnologias: [
+            { nome: 'HTML & CSS', uso: 'Interface responsiva e acessível' },
+            { nome: 'JavaScript', uso: 'Lógica de negócio e manipulação de dados' },
+            { nome: 'Firebase', uso: 'Autenticação e banco de dados em tempo real' }
+        ],
+        status: '🟢 Sistema funcional, em produção e utilizado por comércio real',
+        impacto: 'Sistema em uso real, facilitando controle de fidelidade e apresentação de produtos.',
+        demo: 'https://joburguers.vercel.app/',
+        github: 'https://github.com/JackobAssis/Joburguers'
+    },
+    'gerenciador-comercio': {
+        title: '🏪 Sistema de Gerenciamento de Comércio',
+        problema: 'Microempreendedores precisam organizar operações básicas (produtos, vendas, clientes) mas não têm acesso a sistemas robustos ou não possuem recursos para soluções comerciais.',
+        solucao: 'Desenvolvi uma aplicação web completa focada em simplicidade e praticidade, permitindo cadastro de produtos, controle de estoque básico e organização de informações do negócio. O sistema prioriza usabilidade e funcionalidade direta.',
+        meuPapel: 'Responsável por toda a criação: levantamento de necessidades, arquitetura, desenvolvimento frontend e backend, testes e deploy.',
+        tecnologias: [
+            { nome: 'HTML & CSS', uso: 'Interface limpa e focada em usabilidade' },
+            { nome: 'JavaScript', uso: 'Lógica de gerenciamento e validações' },
+            { nome: 'Firebase', uso: 'Persistência de dados e autenticação' }
+        ],
+        status: '🟢 Sistema funcional e público, disponível para uso',
+        impacto: 'Validação prática de sistema utilitário para pequenos negócios.',
+        demo: 'https://gerenciandocomercio.vercel.app/',
+        github: 'https://github.com/JackobAssis/gerenciandocomercio'
+    },
+    'cycleroute': {
+        title: '🚴 App de Rotas para Ciclismo',
+        problema: 'Ciclistas precisam de ferramentas para planejar, visualizar e organizar rotas, mas muitas soluções são complexas ou não atendem necessidades específicas do público brasileiro.',
+        solucao: 'Criei uma aplicação focada na experiência do ciclista, permitindo visualizar rotas, adicionar pontos de interesse e organizar trajetos. O projeto une minha paixão por tecnologia e ciclismo.',
+        meuPapel: 'Desenvolvedor único: conceito, arquitetura, implementação e testes.',
+        tecnologias: [
+            { nome: 'HTML & CSS', uso: 'Interface responsiva e visual agradável' },
+            { nome: 'JavaScript', uso: 'Lógica de manipulação de rotas' },
+            { nome: 'Maps API', uso: 'Integração com mapas e geolocalização' }
+        ],
+        status: '🟢 Sistema funcional e disponível publicamente',
+        impacto: 'Projeto pessoal funcional que reflete aplicação prática de tecnologia em hobby pessoal.',
+        demo: 'https://cycleroute.vercel.app/',
+        github: 'https://github.com/JackobAssis/cyclerroute1'
+    },
+    'gerenciador-faturas': {
+        title: '💳 Sistema de Gerenciamento de Faturas',
+        problema: 'Controlar faturas de cartões e despesas manualmente é trabalhoso e desorganizado. Planilhas tradicionais não oferecem experiência adequada.',
+        solucao: 'Desenvolvi um sistema web para controle manual de faturas, despesas e cartões. A aplicação permite adicionar gastos, categorizar despesas e visualizar histórico de forma clara e organizada.',
+        meuPapel: 'Desenvolvedor responsável por toda a aplicação: conceito, estrutura, lógica e interface.',
+        tecnologias: [
+            { nome: 'HTML & CSS', uso: 'Interface limpa e focada em organização' },
+            { nome: 'JavaScript', uso: 'Cálculos, validações e manipulação de dados' },
+            { nome: 'Firebase', uso: 'Persistência de dados do usuário' }
+        ],
+        status: '🟢 Sistema funcional, público e disponível',
+        impacto: 'Uso real pessoal, validação de conceito de controle financeiro simplificado.',
+        demo: 'https://gerenciadordefaturas.vercel.app/',
+        github: 'https://github.com/JackobAssis/gerenciadordefaturas'
+    },
+    'page-afiliado': {
+        title: '💼 Página de Afiliados',
+        problema: 'Afiliados precisam de páginas de conversão simples e eficientes para divulgar produtos, mas nem sempre têm conhecimento técnico para criar.',
+        solucao: 'Criei uma landing page focada em conversão, com estrutura clara, call-to-actions eficientes e design responsivo. O objetivo é maximizar cliques e conversões.',
+        meuPapel: 'Desenvolvedor responsável: estrutura, design, copywriting técnico e otimizações.',
+        tecnologias: [
+            { nome: 'HTML & CSS', uso: 'Estrutura semântica e design focado em conversão' },
+            { nome: 'JavaScript', uso: 'Interatividade e tracking de cliques' }
+        ],
+        status: '🟢 Sistema funcional e disponível publicamente',
+        impacto: 'Demonstra habilidade de criar páginas de conversão e foco em resultados.',
+        demo: 'https://pagefiliado.vercel.app/',
+        github: 'https://github.com/JackobAssis/pagefiliado'
+    }
+};
+
+// ========================================
+// FUNÇÕES DOS MODAIS DE ESTUDO DE CASO
+// ========================================
+
+/**
+ * Abre o modal com o estudo de caso do projeto
+ * @param {string} projectId - ID do projeto
+ */
+function openCaseStudy(projectId) {
+    const caseStudy = caseStudies[projectId];
+    if (!caseStudy) return;
+    
+    const modal = document.getElementById('caseStudyModal');
+    const content = document.getElementById('caseStudyContent');
+    
+    // Monta o HTML do estudo de caso
+    const html = `
+        <div class="case-study">
+            <h2>${caseStudy.title}</h2>
+            
+            <div class="case-study-section">
+                <h3>1️⃣ Problema</h3>
+                <p>${caseStudy.problema}</p>
+            </div>
+            
+            <div class="case-study-section">
+                <h3>2️⃣ Solução</h3>
+                <p>${caseStudy.solucao}</p>
+            </div>
+            
+            <div class="case-study-section">
+                <h3>3️⃣ Meu Papel</h3>
+                <p>${caseStudy.meuPapel}</p>
+            </div>
+            
+            <div class="case-study-section">
+                <h3>4️⃣ Tecnologias & Uso</h3>
+                <ul>
+                    ${caseStudy.tecnologias.map(tech => `
+                        <li><strong>${tech.nome}:</strong> ${tech.uso}</li>
+                    `).join('')}
+                </ul>
+            </div>
+            
+            <div class="case-study-section">
+                <h3>5️⃣ Status & Impacto</h3>
+                <p><strong>${caseStudy.status}</strong></p>
+                <p>${caseStudy.impacto}</p>
+            </div>
+            
+            <div class="case-study-links">
+                <a href="${caseStudy.demo}" target="_blank" rel="noopener" class="btn btn-demo">🔗 Acessar Site</a>
+                <a href="${caseStudy.github}" target="_blank" rel="noopener" class="btn btn-github">💻 Ver no GitHub</a>
+            </div>
+        </div>
+    `;
+    
+    content.innerHTML = html;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Previne scroll do body
+}
+
+/**
+ * Fecha o modal de estudo de caso
+ */
+function closeCaseStudy() {
+    const modal = document.getElementById('caseStudyModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // Restaura scroll do body
+}
+
+// Fecha o modal ao clicar fora do conteúdo
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('caseStudyModal');
+    if (event.target === modal) {
+        closeCaseStudy();
+    }
+});
+
+// Fecha o modal com ESC
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeCaseStudy();
+    }
+});
 
 // ========================================
 // ANIMAÇÃO FADE-IN AO SCROLL
