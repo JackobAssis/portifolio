@@ -14,19 +14,20 @@
 // ========================================
 
 const caseStudies = {
-    'virada-sorte': {
-        title: '🎮 Virada da Sorte',
-        problema: 'Necessidade de criar uma aplicação simples e divertida que pudesse demonstrar lógica de programação, aleatoriedade e feedback visual ao usuário.',
-        solucao: 'Desenvolvi um jogo web interativo que utiliza JavaScript puro para gerar resultados aleatórios, com interface responsiva e feedback visual imediato. O sistema implementa lógica de probabilidade e animações CSS para melhorar a experiência do usuário.',
-        meuPapel: 'Atuei como desenvolvedor único, responsável por toda a arquitetura, lógica de jogo, interface e experiência do usuário.',
+    'gerenciador-financas': {
+        title: '💰 Gerenciador de Finanças',
+        problema: 'Controlar finanças pessoais de forma eficiente é um desafio. É difícil saber exatamente quanto dinheiro sobrará no mês considerando faturas de cartões de crédito com diferentes datas de fechamento, vencimento e compras parceladas.',
+        solucao: 'Desenvolvi um sistema completo para controle de rendas, despesas e cartões de crédito. O sistema inclui dashboard mensal e lógica inteligente para cálculo de faturas e parcelas, considerando datas de fechamento e vencimento dos cartões — refletindo corretamente o impacto real no salário mensal.',
+        meuPapel: 'Desenvolvedor responsável por toda a aplicação: arquitetura, design de interface, lógica de negócios, integração com Firebase e deploy.',
         tecnologias: [
-            { nome: 'HTML & CSS', uso: 'Estrutura e design responsivo da interface' },
-            { nome: 'JavaScript Vanilla', uso: 'Lógica de aleatoriedade e interatividade' }
+            { nome: 'HTML & CSS', uso: 'Interface responsiva e focada em usabilidade' },
+            { nome: 'JavaScript', uso: 'Lógica de cálculo de faturas, parcelas e dashboard' },
+            { nome: 'Firebase', uso: 'Persistência de dados e autenticação de usuários' }
         ],
         status: '🟢 Sistema funcional, em produção e disponível online',
-        impacto: 'Demonstra capacidade de criar experiências interativas e validar conceitos de UX.',
-        demo: 'https://viradadasorte.vercel.app/',
-        github: 'https://github.com/JackobAssis'
+        impacto: 'Sistema em uso real, ajudando a planejar melhor as finanças pessoais e entender o impacto real das despesas no orçamento mensal.',
+        demo: 'https://gerenciadorpessoal.vercel.app/',
+        github: 'https://github.com/JackobAssis/gerenciadorpessoal'
     },
     'joburguers': {
         title: '🍔 Sistema de Pontuação & Cardápio - JoBurguers',
