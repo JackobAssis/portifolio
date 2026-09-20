@@ -14,6 +14,54 @@
 // ========================================
 
 const caseStudies = {
+    'agendaestetica': {
+        title: '💈 AgendaEstética — SaaS de Agenda Online',
+        problema: 'Profissionais de estética perdem agendamentos no WhatsApp, sofrem overbooking e não têm histórico de clientes. Ferramentas genéricas são caras e não resolvem a dor específica do setor.',
+        solucao: 'Criei uma plataforma SaaS com agenda visual (mensal/semanal/diário), slots exclusivos que impedem conflitos, CRM básico e histórico. Stack: JS ESM, Firebase Auth/Firestore/Functions, PWA, Cypress E2E. Documentação com 30+ arquivos e testes de fluxo completo.',
+        meuPapel: 'Product & Full-Stack solo: requisitos, arquitetura, Firestore rules, Functions, PWA, testes Cypress/E2E e docs. Projeto âncora para demonstrar entrega SaaS completa.',
+        tecnologias: [
+            { nome: 'JavaScript (ESM) + PWA', uso: 'SPA modular, offline-first, installable' },
+            { nome: 'Firebase Auth/Firestore/Functions', uso: 'Autenticação, regras de segurança e automações serverless' },
+            { nome: 'Cypress + testes E2E', uso: 'Fluxos críticos testados (30+ casos)' },
+            { nome: 'Vercel + Firebase Hosting', uso: 'Deploy e hosting' }
+        ],
+        status: '🟢 Documentado, testado e pronto para monetização — case SaaS sênior-level',
+        impacto: 'Valida capacidade de criar SaaS real do zero — arquitetura, regras de negócio e qualidade. Melhor case para vaga Backend Júnior.',
+        demo: 'https://github.com/JackobAssis/JackobLab/tree/main/projetos/agendaestetica',
+        github: 'https://github.com/JackobAssis/JackobLab'
+    },
+    'jackoblab-os': {
+        title: '🧠 JackobLab-OS — Painel Web Full-Stack',
+        problema: 'Gerenciar o JackobLab (projetos, IA, infra) exigia SSH, múltiplos terminais e falta de visão unificada — impossível operar pelo celular ou remoto.',
+        solucao: 'Construí um OS web: backend Express + Socket.io + SQLite + wrapper OpenCode (DeepSeek), file browser, terminal, Git, aprovações human-in-the-loop, monitor (CPU/RAM/disco/Docker/Ollama/logs). Frontend React 19 + Vite + Tailwind (18 módulos). Réplica edge Hono+D1 para leitura. Docker compose.',
+        meuPapel: 'Arquiteto e implementador full-stack: API, WebSocket streaming, orquestração multi-agente, UI e infra.',
+        tecnologias: [
+            { nome: 'Node.js + Express + Socket.io + SQLite', uso: 'API, realtime e persistência' },
+            { nome: 'React 19 + Vite + Tailwind', uso: 'SPA com 18 módulos de UI' },
+            { nome: 'Hono + D1 (Cloudflare edge)', uso: 'Réplica de leitura em produção' },
+            { nome: 'Docker + Cloudflare Tunnel', uso: 'Containers e exposição segura' }
+        ],
+        status: '🟢 Sistema em produção local — arquitetura cliente-servidor real',
+        impacto: 'Maior prova de Backend/Infra: WebSocket, monitoramento, multi-agente e DevOps.',
+        demo: 'https://github.com/JackobAssis/JackobLab/tree/main/projetos/JackobLab-OS',
+        github: 'https://github.com/JackobAssis/JackobLab'
+    },
+    'soc-lab': {
+        title: '🔒 Laboratório SOC — Wireshark & Análise de Logs',
+        problema: 'Sem visibilidade de tráfego e logs, equipes não detectam brute-force, varreduras ou anomalias — gap crítico para SOC.',
+        solucao: 'Montei labs em Kali Linux: captura e análise com Wireshark (TCP/IP, DNS, HTTP), testes éticos controlados (Hydra, Aircrack-ng) e parser de logs em Node.js que detecta brute-force e gera alertas — base para o projeto SOC Log Analyzer.',
+        meuPapel: 'Pesquisador e builder: ambiente Kali, cenários de ataque/defesa, parser e documentação no CyberZone.',
+        tecnologias: [
+            { nome: 'Kali Linux + Wireshark', uso: 'Captura e análise de tráfego' },
+            { nome: 'TCP/IP, DNS, HTTP + CIA', uso: 'Fundamentos para triagem SOC' },
+            { nome: 'Hydra / Aircrack-ng (lab isolado)', uso: 'Simulação ética de ataques' },
+            { nome: 'Node.js (parser)', uso: 'Detecção de padrões nos logs' }
+        ],
+        status: '🟢 Labs documentados — CyberZone ativo',
+        impacto: 'Case direto para vaga SOC/Cybersecurity Júnior — demonstra fundamentos e prática defensiva.',
+        demo: 'https://github.com/JackobAssis/JackobLab/tree/main/CyberZone',
+        github: 'https://github.com/JackobAssis/JackobLab'
+    },
     'gerenciador-financas': {
         title: '💰 Gerenciador de Finanças',
         problema: 'Controlar finanças pessoais de forma eficiente é um desafio. É difícil saber exatamente quanto dinheiro sobrará no mês considerando faturas de cartões de crédito com diferentes datas de fechamento, vencimento e compras parceladas.',
@@ -58,6 +106,21 @@ const caseStudies = {
         impacto: 'Validação prática de sistema utilitário para pequenos negócios.',
         demo: 'https://gerenciandocomercio.vercel.app/',
         github: 'https://github.com/JackobAssis/gerenciandocomercio'
+    },
+    'mobile-cast': {
+        title: '📱 Mobile Cast — Android Screen + Audio (WebRTC P2P)',
+        problema: 'Transmitir tela e áudio do Android para PC sem nuvem, sem lag e com gravação local é complexo — soluções comerciais cobram e exigem internet.',
+        solucao: 'Implementei fluxo P2P via WebRTC: MediaProjection + AudioPlaybackCapture no Android, signaling mínimo (SDP/ICE) em Node, vídeo em <video> + MediaRecorder no PC (.webm). LAN-first, processamento no PC, servidor não transporta vídeo.',
+        meuPapel: 'Arquiteto do fluxo P2P: app Android, signaling, receptor web e docs Fase 0–7.',
+        tecnologias: [
+            { nome: 'Android MediaProjection', uso: 'Captura de tela e áudio' },
+            { nome: 'WebRTC P2P', uso: 'Transporte direto de mídia' },
+            { nome: 'Node (signaling)', uso: 'Troca SDP/ICE apenas' }
+        ],
+        status: '🟢 MVP Fase 0–7 completo — docs e arquitetura',
+        impacto: 'Demonstra redes, mídia e P2P — diferencial técnico forte em entrevistas.',
+        demo: 'https://github.com/JackobAssis/JackobLab/tree/main/projetos/Android%20Screen',
+        github: 'https://github.com/JackobAssis/JackobLab'
     },
     'cycleroute': {
         title: '🚴 App de Rotas para Ciclismo',
