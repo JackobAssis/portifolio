@@ -86,9 +86,9 @@
         <div class="container">
             <h2 class="section-title fade-in">👋 Sobre mim</h2>
             <div class="about-wrapper fade-in">
-                <!-- <div class="about-photo">
-                    <img src="assets/profile.jpg" alt="Whybson Assis">
-                </div> -->
+                <div class="about-photo">
+                    <img src="assets/profile.jpg" alt="Whybson Assis — Back-End & SOC">
+                </div>
                 <div class="about-content">
                     <p>
                         Sou <strong>Desenvolvedor Back-End (Node.js/Express, APIs REST, Firebase, SQLite/D1)</strong> e estudante de <strong>Cibersegurança/SOC</strong> (CIA, TCP/IP, Wireshark, análise de logs). Meu laboratório é o <strong>JackobLab</strong> — onde documento e publico sistemas de ponta a ponta, do requisito ao deploy.
@@ -465,20 +465,55 @@
                     </div>
                 </div>
 
-                <!-- Em breve: API REST + SOC Analyzer -->
-                <div class="project-card coming-soon fade-in">
-                    <h3 class="project-title">🚀 Em breve: API REST Profissional + SOC Log Analyzer</h3>
+                <!-- NOVO: API REST Profissional -->
+                <div class="project-card featured fade-in" data-project="api-rest-node">
+                    <div class="project-featured-label">✅ NOVO — Backend</div>
+                    <h3 class="project-title">🔌 API REST Profissional — Node.js + JWT</h3>
                     <p class="project-description">
-                        Próximos cases âncora para vagas: <strong>API REST (Express + JWT + SQLite + Jest + OpenAPI)</strong> e <strong>SOC Log Analyzer</strong> (parser de logs, detecção de brute-force, dashboard). Em desenvolvimento no JackobLab.
+                        API completa com <strong>JWT + bcrypt, Zod, Helmet, paginação e testes</strong>. Endpoints <code>/auth</code> e <code>/tasks</code> com SQLite (fallback memória). Testada com Jest + Supertest (3 testes passando).
                     </p>
                     <div class="project-tags">
                         <span class="tag">Express</span>
                         <span class="tag">JWT</span>
+                        <span class="tag">Zod</span>
+                        <span class="tag">SQLite</span>
                         <span class="tag">Jest</span>
-                        <span class="tag">SIEM</span>
+                        <span class="tag">OpenAPI</span>
                     </div>
                     <div class="project-status">
-                        <span class="status-badge prototype">🟡 Em desenvolvimento</span>
+                        <span class="status-badge production">🟢 Testes OK • Pronto p/ deploy</span>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn btn-case-study" onclick="openCaseStudy('api-rest-node')">📖 Ver Estudo de Caso</button>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/JackobAssis/JackobLab/tree/main/projetos/api-rest-node" target="_blank" rel="noopener" class="btn btn-demo">🔗 Repo</a>
+                        <a href="https://github.com/JackobAssis" target="_blank" rel="noopener" class="btn btn-github">💻 GitHub</a>
+                    </div>
+                </div>
+
+                <!-- NOVO: SOC Log Analyzer -->
+                <div class="project-card featured fade-in" data-project="soc-analyzer">
+                    <div class="project-featured-label">✅ NOVO — SOC</div>
+                    <h3 class="project-title">🛡️ SOC Log Analyzer — Brute-Force Detector</h3>
+                    <p class="project-description">
+                        Parser de <code>auth.log</code> + detector <strong>5 falhas/IP em 5 min</strong> + API <code>/api/analyze</code> e dashboard. 3 testes OK, sample com 1 alerta real (203.0.113.10).
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">SOC</span>
+                        <span class="tag">Wireshark</span>
+                        <span class="tag">Express</span>
+                    </div>
+                    <div class="project-status">
+                        <span class="status-badge production">🟢 Testes OK • Dashboard</span>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn btn-case-study" onclick="openCaseStudy('soc-analyzer')">📖 Ver Estudo de Caso</button>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/JackobAssis/JackobLab/tree/main/projetos/soc-log-analyzer" target="_blank" rel="noopener" class="btn btn-demo">🔗 Repo</a>
+                        <a href="https://github.com/JackobAssis" target="_blank" rel="noopener" class="btn btn-github">💻 GitHub</a>
                     </div>
                 </div>
 

@@ -165,6 +165,39 @@ const caseStudies = {
         impacto: 'Demonstra habilidade de criar páginas de conversão e foco em resultados.',
         demo: 'https://pagefiliado.vercel.app/',
         github: 'https://github.com/JackobAssis/pagefiliado'
+    },
+    'api-rest-node': {
+        title: '🔌 API REST Profissional — Node.js + JWT',
+        problema: 'Portfólio mostrava só front + Firebase. Vagas Backend exigem Express, JWT, validações, testes e OpenAPI — sem case real, candidatura é filtrada.',
+        solucao: 'Implementei API completa: Express + JWT/bcrypt + Zod + Helmet/CORS/Morgan, CRUD /tasks com paginação (page/limit/status/search), fallback SQLite→memória portável, e OpenAPI. 3 testes Jest+Supertest passando.',
+        meuPapel: 'Backend solo: design REST, middlewares auth/rate-limit, validações Zod, testes e docs OpenAPI.',
+        tecnologias: [
+            { nome: 'Express + JWT + bcryptjs', uso: 'Auth e proteção de rotas' },
+            { nome: 'Zod', uso: 'Validação de entrada' },
+            { nome: 'SQLite (better-sqlite3) com fallback memória', uso: 'Persistência portável sem nativo obrigatório' },
+            { nome: 'Jest + Supertest', uso: 'Testes de health e fluxo completo' },
+            { nome: 'OpenAPI 3.0', uso: 'Documentação da API' }
+        ],
+        status: '🟢 Testes OK (3/3) — pronto para deploy Render/Cloudflare',
+        impacto: 'Evidência Backend Júnior: cobre exatamente o gap que recrutadores apontam. Repositório em projetos/api-rest-node.',
+        demo: 'https://github.com/JackobAssis/JackobLab/tree/main/projetos/api-rest-node',
+        github: 'https://github.com/JackobAssis/JackobLab'
+    },
+    'soc-analyzer': {
+        title: '🛡️ SOC Log Analyzer — Brute-Force Detector',
+        problema: 'Sem parser, triagem de auth.log é manual. SOC precisa detectar padrões (5 falhas/IP em 5min) e gerar alertas.',
+        solucao: 'Criei serviço Node: parser syslog → detector brute-force (janela deslizante) → API POST /api/analyze e GET /api/alerts + dashboard HTML. CLI --analyze e 3 testes. Sample com 6 falhas de 203.0.113.10 → 1 alerta.',
+        meuPapel: 'Builder SOC: parser regex, detector, API Express e dashboard — integrado ao CyberZone (Wireshark/Hydra).',
+        tecnologias: [
+            { nome: 'Node.js + Express', uso: 'API e dashboard' },
+            { nome: 'Parser syslog', uso: 'Extrai ip/user/result de auth.log' },
+            { nome: 'Detector brute-force', uso: 'Janela 5min/5 falhas por IP' },
+            { nome: 'Jest', uso: 'Testes de parser e detecção' }
+        ],
+        status: '🟢 Testes OK (3/3) — dashboard em dashboard/public/index.html',
+        impacto: 'Case SOC defensivo: transforma logs em alertas acionáveis — diferencial para vaga SOC Júnior.',
+        demo: 'https://github.com/JackobAssis/JackobLab/tree/main/projetos/soc-log-analyzer',
+        github: 'https://github.com/JackobAssis/JackobLab'
     }
 };
 
