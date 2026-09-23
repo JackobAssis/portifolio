@@ -198,6 +198,22 @@ const caseStudies = {
         impacto: 'Case SOC defensivo: transforma logs em alertas acionáveis — diferencial para vaga SOC Júnior.',
         demo: 'https://github.com/JackobAssis/JackobLab/tree/main/projetos/soc-log-analyzer',
         github: 'https://github.com/JackobAssis/JackobLab'
+    },
+    'job-hunter': {
+        title: '🎯 Job Hunter — Sistema de Busca e Triagem de Vagas (Backend/Automação)',
+        problema: 'Buscar vagas em 5+ portais, avaliar compatibilidade e organizar candidaturas manualmente consome horas e gera candidaturas desalinhadas. Gupy/LinkedIn sem API pública e Adzuna/Greenhouse com limites exigem arquitetura resiliente e scoring honesto.',
+        solucao: 'Construí plataforma modular Node.js (JackobLab): coleta multi-fonte (Arbeitnow, RemoteOK, Adzuna BR, Greenhouse Stone) com HttpClient timeout/retry/rateLimit, normalização job.schema.json, dedup antes da IA (hash), histórico persistente, IA qwen2.5:1.5b (Ollama) + scoring determinístico 0.30/threshold 70, dashboard read-only 127.0.0.1:8788 + Vercel serverless público, e relatórios de auditoria. Fases 5.1→15 com baselines congelados.',
+        meuPapel: 'Arquiteto e builder solo: contrato de fontes, collectors, normalizers, history, scoring, IA desacoplada, dashboard e deploy Vercel — human-in-the-loop, sem candidatura automática.',
+        tecnologias: [
+            { nome: 'Node.js + ESM + HttpClient', uso: 'Coleta resiliente com timeout 15s, retry 2, rateLimit 2s' },
+            { nome: 'Qwen2.5:1.5b (Ollama) + mock fallback', uso: 'Análise auditável, scoring determinístico' },
+            { nome: 'Dashboard Triagem Inteligente v15', uso: '127.0.0.1:8788 + api/job-hunter-omega-three.vercel.app' },
+            { nome: 'Histórico + Deduplicação', uso: 'nova/conhecida/atualizada/encerrada, idempotente 66→66' }
+        ],
+        status: '🟢 Fase15 — 66 vagas ativas (4 fontes), 3 fixtures ≥70, deploy público, 30+ testes',
+        impacto: 'Evidência Backend/Automação: sistema real com múltiplas APIs, regras de negócio e monitoramento — diferencial para vaga Backend Júnior e automação para PMEs.',
+        demo: 'https://job-hunter-omega-three.vercel.app',
+        github: 'https://github.com/JackobAssis/JackobLab/tree/main/Whybson%20Jackson%20de%20Assis/carreira/job-hunter'
     }
 };
 
