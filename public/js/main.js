@@ -288,43 +288,50 @@ document.addEventListener('keydown', function(event) {
 });
 
 // ========================================
-// ANIMAÇÃO FADE-IN AO SCROLL
+// ANIMAÇÃO FADE-IN AO SCROLL (otimizado)
 // ========================================
 
 /**
  * Observa elementos com classe .fade-in e adiciona .visible quando entram no viewport
+ * Quick-win: reduz delay, usa threshold maior e content-visibility no CSS
  */
 function initScrollAnimations() {
-    // Seleciona todos os elementos com classe fade-in
     const fadeElements = document.querySelectorAll('.fade-in');
+    if (!fadeElements.length) return;
     
-    // Configuração do observer
     const observerOptions = {
-        threshold: 0.1, // Trigger quando 10% do elemento estiver visível
-        rootMargin: '0px 0px -50px 0px' // Pequeno offset inferior
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
     };
     
-    // Callback quando elemento entra/sai do viewport
     const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Adiciona classe visible com delay progressivo
                 entry.target.classList.add('visible');
-                // Para de observar este elemento (animação única)
                 observer.unobserve(entry.target);
             }
         });
     };
     
-    // Cria o observer
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     
-    // Observa cada elemento
     fadeElements.forEach((element, index) => {
-        // Adiciona delay progressivo baseado no índice
-        element.style.transitionDelay = `${index * 0.1}s`;
+        // delay capado em 0.3s e só para os 12 primeiros (evita fila de 4s)
+        const d = Math.min(index, 12) * 0.03;
+        element.style.transitionDelay = `${d}s`;
         observer.observe(element);
     });
+}
+
+// util throttle via rAF
+function throttleRaf(fn) {
+    let ticking = false;
+    return function(...args) {
+        if (!ticking) {
+            requestAnimationFrame(() => { fn.apply(this, args); ticking = false; });
+            ticking = true;
+        }
+    };
 }
 
 // ========================================
@@ -470,18 +477,15 @@ function removeLoader() {
 // ========================================
 
 /**
- * Adiciona sombra na navbar ao rolar
+ * Adiciona sombra na navbar ao rolar (throttled)
  */
 function initNavbarScroll() {
     const nav = document.querySelector('.nav');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
-        } else {
-            nav.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.4)';
-        }
+    if (!nav) return;
+    const onScroll = throttleRaf(() => {
+        nav.style.boxShadow = window.scrollY > 100 ? '0 4px 20px rgba(0, 0, 0, 0.5)' : '0 4px 16px rgba(0, 0, 0, 0.4)';
     });
+    window.addEventListener('scroll', onScroll, { passive: true });
 }
 
 // ========================================
@@ -517,16 +521,13 @@ function initBackToTop() {
     
     document.body.appendChild(backToTopBtn);
     
-    // Mostra/esconde baseado no scroll
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-            backToTopBtn.style.opacity = '1';
-            backToTopBtn.style.visibility = 'visible';
-        } else {
-            backToTopBtn.style.opacity = '0';
-            backToTopBtn.style.visibility = 'hidden';
-        }
+    // Mostra/esconde baseado no scroll (throttled)
+    const toggleBackToTop = throttleRaf(() => {
+        const show = window.scrollY > 500;
+        backToTopBtn.style.opacity = show ? '1' : '0';
+        backToTopBtn.style.visibility = show ? 'visible' : 'hidden';
     });
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
     
     // Ação do clique
     backToTopBtn.addEventListener('click', () => {

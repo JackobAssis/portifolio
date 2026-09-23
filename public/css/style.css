@@ -856,18 +856,28 @@ body {
 }
 
 /* ========================================
-   ANIMAÇÕES
+   ANIMAÇÕES (otimizado quick-win)
    ======================================== */
 
 .fade-in {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(16px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    will-change: opacity, transform;
 }
 
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* content-visibility para secções abaixo da dobra — reduz trabalho de render */
+.projects-grid, .technologies, .experience {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 1000px;
+}
+.project-card {
+    contain: layout paint;
 }
 
 /* ========================================

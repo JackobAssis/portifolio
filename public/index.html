@@ -26,7 +26,9 @@
     <meta property="twitter:image" content="https://portifolio-ten-beta-91.vercel.app/assets/preview.png">
     
     <title>Whybson Assis | Back-End Node.js & Cyber Security — JackobLab</title>
+    <link rel="preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="assets/profile.webp" as="image" type="image/webp" imagesrcset="assets/profile.webp 600w" imagesizes="200px" fetchpriority="high">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -87,7 +89,10 @@
             <h2 class="section-title fade-in">👋 Sobre mim</h2>
             <div class="about-wrapper fade-in">
                 <div class="about-photo">
-                    <img src="assets/profile.jpg" alt="Whybson Assis — Back-End & SOC">
+                    <picture>
+                        <source srcset="assets/profile.webp" type="image/webp">
+                        <img src="assets/profile.jpg" alt="Whybson Assis — Back-End & SOC" width="200" height="200" loading="lazy" decoding="async" fetchpriority="low">
+                    </picture>
                 </div>
                 <div class="about-content">
                     <p>
@@ -605,7 +610,7 @@
         </div>
     </footer>
 
-    <!-- Script principal -->
-    <script src="js/main.js"></script>
+    <!-- Script principal (defer para não bloquear paint) -->
+    <script src="js/main.js" defer></script>
 </body>
 </html>
